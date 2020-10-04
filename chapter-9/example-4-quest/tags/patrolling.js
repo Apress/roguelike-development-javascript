@@ -7,7 +7,7 @@ const patrolling = {
             this.tint = 0xdd00cd
 
             if (this.sprite) {
-                this.sprite.tint = this.tin
+                this.sprite.tint = this.tint
                 this.sprite.tintFill = true
             }
 
