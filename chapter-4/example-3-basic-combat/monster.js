@@ -9,6 +9,7 @@ export default class BasicMonster {
         this.x = x
         this.y = y
         this.tile = 26
+        this.moving = false
         dungeon.initializeEntity(this)
     }
 
