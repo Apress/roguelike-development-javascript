@@ -17,7 +17,7 @@ export default class BasicMonster {
         let oldX = this.x
         let oldY = this.y
     
-        if (this.movementPoints > 0) {
+        if (this.movementPoints > 0 && !this.moving) {
             // https://github.com/qiao/PathFinding.js
             let pX = dungeon.player.x
             let pY = dungeon.player.y
