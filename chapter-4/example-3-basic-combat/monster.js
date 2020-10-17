@@ -9,6 +9,7 @@ export default class BasicMonster {
         this.x = x
         this.y = y
         this.tile = 26
+        this.moving = false
         dungeon.initializeEntity(this)
     }
 
@@ -32,7 +33,7 @@ export default class BasicMonster {
         let finder = new PF.AStarFinder()
         let path = finder.findPath(oldX, oldY, pX, pY, grid)
 
-        if (this.movementPoints > 0) {
+        if (this.movementPoints > 0 && !this.moving) {
             if (path.length > 2) {
                 dungeon.moveEntityTo(this, path[1][0], path[1][1])
             }
