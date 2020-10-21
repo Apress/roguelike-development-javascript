@@ -3,7 +3,7 @@ import Taggable from "../taggable.js"
 
 export default class BasicHero extends Taggable {
     constructor(x, y) {
-        super(x, y)
+        super(x,y)
         this.name = "The Hero"
         this.movementPoints = 1
         this.actionPoints = 1
@@ -17,7 +17,7 @@ export default class BasicHero extends Taggable {
     }
 
     setEvents() {
-        dungeon.scene.input.keyboard.addCapture(["SPACE", "UP", "DOWN", "LEFT", "RIGHT"])
+        dungeon.scene.input.keyboard.addCapture(["SPACE", "UP","DOWN","LEFT","RIGHT"])
         dungeon.scene.input.keyboard.on("keyup", (event) => {
             if (!this.over()) {
                 this.processInput(event)
@@ -147,7 +147,7 @@ export default class BasicHero extends Taggable {
 
             this.toggleItem(key - 1)
         }
-
+        
         // go down the dungeon
         if (event.key == "d") {
             dungeon.goDown()
@@ -206,20 +206,17 @@ export default class BasicHero extends Taggable {
 
                 // Check if entity at destination is an item
                 if (entity && entity.type == "item" && this.actionPoints > 0) {
-                    // Check if inventory is full
-                    if (this.items.length < 10) {
-                        this.items.push(entity)
-                        dungeon.itemPicked(entity)
-                        dungeon.log(`${this.name} picked ${entity.name}: ${entity.description}`)
-                        this.actionPoints -= 1
-                    }
+                    this.items.push(entity)
+                    dungeon.itemPicked(entity)
+                    dungeon.log(`${this.name} picked ${entity.name}: ${entity.description}`)
+                    this.actionPoints -= 1
                 } else {
                     newX = oldX
                     newY = oldY
                 }
 
                 // Check if entity at destination is a stair
-                if (entity && entity.type == "stairs") {
+                if (entity && entity.type == "stairs" ) {
                     if (entity.direction == "down") {
                         dungeon.goDown()
                     } else {
@@ -338,7 +335,7 @@ export default class BasicHero extends Taggable {
         if (this.UIstatsText) {
             this.UIstatsText.setText(`Hp: ${this.healthPoints}\nMp: ${this.movementPoints}\nAp: ${this.actionPoints}`)
         }
-
+        
     }
 
     cleanup() {

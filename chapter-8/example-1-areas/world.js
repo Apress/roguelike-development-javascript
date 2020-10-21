@@ -13,7 +13,7 @@ const world = {
             })
     },
     create: function () {
-        let dg = new BSPDungeon(80, 50, 4)
+        let dg = new BSPDungeon(80, 50, 3)
         let level = dg.toLevelData()
         dungeon.initialize(this, level)
 
